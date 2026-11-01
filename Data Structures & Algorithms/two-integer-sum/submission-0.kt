@@ -1,0 +1,13 @@
+class Solution {
+      fun twoSum(nums: IntArray, target: Int): IntArray {
+        val hashMap = mutableMapOf<Int, Int>()
+        for (i in 0 until nums.size) { 
+            val complement = target - nums[i]
+            if (hashMap.containsKey(complement)) {
+                return intArrayOf(hashMap[complement]!!, i)
+            }
+            hashMap[nums[i]] = i
+        }
+        throw IllegalArgumentException("No two sum solution")
+    }
+}
